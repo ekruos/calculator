@@ -64,3 +64,12 @@ body {
     border-radius: 10px;
     font-size: 24px;
 }
+
+.gray {
+    background-color: rgb(69, 68, 68);
+    height: 40px;
+    width: 70px;
+    border-radius: 10px;
+    font-size: 24px;
+    color: rgb(222, 218, 218);
+}
