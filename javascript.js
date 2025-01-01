@@ -236,10 +236,10 @@ clearButton.addEventListener("click", () => {
 });
 
 dotButton.addEventListener("click", () => {
-    if (secondNumber) {
+    if (secondNumber && !(secondNumber.includes("."))) {
         upperText.textContent = `${firstNumber}${operator}${secondNumber}.`;
         secondNumber += ".";
-    } else if (!(operator)) {
+    } else if (!(operator) && !(firstNumber.includes("."))) {
         upperText.textContent = `${firstNumber}.`;
         firstNumber += ".";
     }
