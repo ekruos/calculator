@@ -21,13 +21,17 @@ let result;
 
 function operate(operator, firstNumber, secondNumber) {
     if (operator === "+") {
-        return add(+firstNumber, +secondNumber);
+        return parseFloat((+add(+firstNumber, +secondNumber)).toFixed(4));
     } else if (operator === "-") {
-        return subtract(+firstNumber, +secondNumber);
+        return parseFloat((+subtract(+firstNumber, +secondNumber)).toFixed(4));
     } else if (operator === "*") {
-        return multiply(+firstNumber, +secondNumber);
+        return parseFloat((+multiply(+firstNumber, +secondNumber)).toFixed(4));
     } else if (operator === "/") {
-        return divide(+firstNumber, +secondNumber);
+        if (secondNumber != 0) {
+            return parseFloat((+divide(+firstNumber, +secondNumber)).toFixed(4));
+        } else {
+            return "ERROR";
+        }
     }
 }
 
@@ -65,6 +69,9 @@ const plus = document.querySelector(".plus");
 const equals = document.querySelector(".equals");
 
 const clearButton = document.querySelector(".clear-button");
+const dotButton = document.querySelector(".dot");
+const delButton = document.querySelector(".del-button");
+const percentageButton = document.querySelector(".percentage-button");
 
 
 
@@ -220,12 +227,58 @@ equals.addEventListener("click", () => {
 });
 
 clearButton.addEventListener("click", () => {
-    upperText.textContent = ``;
+    upperText.textContent = `0`;
     lowerText.textContent = ``;
     firstNumber = "";
     operator = "";
     secondNumber = "";
 });
+
+dotButton.addEventListener("click", () => {
+    if (secondNumber) {
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}.`;
+        secondNumber += ".";
+    } else if (!(operator)) {
+        upperText.textContent = `${firstNumber}.`;
+        firstNumber += ".";
+    }
+});
+
+delButton.addEventListener("click", () => {
+    if (secondNumber) {
+        upperText.textContent = `${firstNumber}${operator}`;
+        secondNumber = "";
+    } else if (operator) {
+        upperText.textContent = `${firstNumber}`;
+        operator = "";
+    } else {
+        upperText.textContent = `0`;
+        firstNumber = "";
+        lowerText.textContent = "";
+    }
+});
+
+percentageButton.addEventListener("click", () => {
+    if (lowerText.textContent) {
+        number = +lowerText.textContent*100;
+        lowerText.textContent = `${number}%`;
+    } else if (secondNumber) {
+        result = operate(operator, firstNumber, secondNumber);
+        result = +result*100;
+        lowerText.textContent = `${result}%`;
+        firstNumber = "";
+        operator = "";
+        secondNumber = "";
+    } else {
+        result = +firstNumber*100;
+        lowerText.textContent = `${result}%`;
+        firstNumber = "";
+        operator = "";
+        secondNumber = "";
+    }
+});
+
+
 
 
 
