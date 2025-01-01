@@ -217,14 +217,15 @@ plus.addEventListener("click", () => {
 });
 
 equals.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = `${firstNumber}${operator}${secondNumber}=`;
-    result = operate(operator, firstNumber, secondNumber);
-    lowerText.textContent = `${result}`;
-    firstNumber = result;
-    operator = "";
-    secondNumber = "";
-});
+    if (secondNumber) {
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}=`;
+        result = operate(operator, firstNumber, secondNumber);
+        lowerText.textContent = `${result}`;
+        firstNumber = result;
+        operator = "";
+        secondNumber = "";
+    }
+    });
 
 clearButton.addEventListener("click", () => {
     upperText.textContent = `0`;
