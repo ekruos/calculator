@@ -14,19 +14,20 @@ function divide(a,b) {
     return a/b;
 }
 
-let firstNumber;
-let secondNumber;
+let firstNumber = "";
+let secondNumber = "";
 let operator;
+let result;
 
 function operate(operator, firstNumber, secondNumber) {
     if (operator === "+") {
-        return add(firstNumber, secondNumber);
+        return add(+firstNumber, +secondNumber);
     } else if (operator === "-") {
-        return subtract(firstNumber, secondNumber);
+        return subtract(+firstNumber, +secondNumber);
     } else if (operator === "*") {
-        return multiply(firstNumber, secondNumber);
+        return multiply(+firstNumber, +secondNumber);
     } else if (operator === "/") {
-        return divide(firstNumber, secondNumber);
+        return divide(+firstNumber, +secondNumber);
     }
 }
 
@@ -63,85 +64,167 @@ const minus = document.querySelector(".minus");
 const plus = document.querySelector(".plus");
 const equals = document.querySelector(".equals");
 
+const clearButton = document.querySelector(".clear-button");
+
 
 
 
 
 zero.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "0";
+    if (!operator) {
+        firstNumber += "0";
+        upperText.textContent = firstNumber;
+    } else {
+        secondNumber += "0";
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}`;
+    }
 });
 
 one.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "1";
+    if (!operator) {
+        firstNumber += "1";
+        upperText.textContent = firstNumber;
+    } else {
+        secondNumber += "1";
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}`;
+    }
+    
 });
 
 two.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "2";
+    if (!operator) {
+        firstNumber += "2";
+        upperText.textContent = firstNumber;
+    } else {
+        secondNumber += "2";
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}`;
+    }
 });
 
 three.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "3";
+    if (!operator) {
+        firstNumber += "3";
+        upperText.textContent = firstNumber;
+    } else {
+        secondNumber += "3";
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}`;
+    }
 });
 
 four.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "4";
+    if (!operator) {
+        firstNumber += "4";
+        upperText.textContent = firstNumber;
+    } else {
+        secondNumber += "4";
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}`;
+    }
 });
 
 five.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "5";
+    if (!operator) {
+        firstNumber += "5";
+        upperText.textContent = firstNumber;
+    } else {
+        secondNumber += "5";
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}`;
+    }
 });
 
 six.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "6";
+    if (!operator) {
+        firstNumber += "6";
+        upperText.textContent = firstNumber;
+    } else {
+        secondNumber += "6";
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}`;
+    }
 });
 
 seven.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "7";
+    if (!operator) {
+        firstNumber += "7";
+        upperText.textContent = firstNumber;
+    } else {
+        secondNumber += "7";
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}`;
+    }
 });
 
 eight.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "8";
+    if (!operator) {
+        firstNumber += "8";
+        upperText.textContent = firstNumber;
+    } else {
+        secondNumber += "8";
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}`;
+    }
 });
 
 nine.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "9";
+    if (!operator) {
+        firstNumber += "9";
+        upperText.textContent = firstNumber;
+    } else {
+        secondNumber += "9";
+        upperText.textContent = `${firstNumber}${operator}${secondNumber}`;
+    }
 });
 
 
 
 divide_button.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "/";
+    if (operator) {
+        firstNumber = operate(operator, firstNumber, secondNumber);
+    } 
+    operator = "/";
+    secondNumber = "";
+    upperText.textContent = `${firstNumber}${operator}`;
 });
 
 x.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "x";
+    if (operator) {
+        firstNumber = operate(operator, firstNumber, secondNumber);
+    } 
+    operator = "*";
+    secondNumber = "";
+    upperText.textContent = `${firstNumber}${operator}`;
 });
 
 minus.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "-";
+    if (operator) {
+        firstNumber = operate(operator, firstNumber, secondNumber);
+    } 
+    operator = "-";
+    secondNumber = "";
+    upperText.textContent = `${firstNumber}${operator}`;
 });
 
 plus.addEventListener("click", () => {
-    //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "+";
+    if (operator) {
+        firstNumber = operate(operator, firstNumber, secondNumber);
+    } 
+    operator = "+";
+    secondNumber = "";
+    upperText.textContent = `${firstNumber}${operator}`;
 });
 
 equals.addEventListener("click", () => {
     //const upperText = document.querySelector(".upperText");
-    upperText.textContent = "=";
+    upperText.textContent = `${firstNumber}${operator}${secondNumber}=`;
+    result = operate(operator, firstNumber, secondNumber);
+    lowerText.textContent = `${result}`;
+    firstNumber = result;
+    operator = "";
+    secondNumber = "";
+});
+
+clearButton.addEventListener("click", () => {
+    upperText.textContent = ``;
+    lowerText.textContent = ``;
+    firstNumber = "";
+    operator = "";
+    secondNumber = "";
 });
 
 
