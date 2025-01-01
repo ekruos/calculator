@@ -181,7 +181,7 @@ nine.addEventListener("click", () => {
 
 
 divide_button.addEventListener("click", () => {
-    if (operator) {
+    if (operator && secondNumber) {
         firstNumber = operate(operator, firstNumber, secondNumber);
     } 
     operator = "/";
@@ -190,7 +190,7 @@ divide_button.addEventListener("click", () => {
 });
 
 x.addEventListener("click", () => {
-    if (operator) {
+    if (operator && secondNumber) {
         firstNumber = operate(operator, firstNumber, secondNumber);
     } 
     operator = "*";
@@ -199,7 +199,7 @@ x.addEventListener("click", () => {
 });
 
 minus.addEventListener("click", () => {
-    if (operator) {
+    if (operator && secondNumber) {
         firstNumber = operate(operator, firstNumber, secondNumber);
     } 
     operator = "-";
@@ -208,7 +208,7 @@ minus.addEventListener("click", () => {
 });
 
 plus.addEventListener("click", () => {
-    if (operator) {
+    if (operator && secondNumber) {
         firstNumber = operate(operator, firstNumber, secondNumber);
     } 
     operator = "+";
