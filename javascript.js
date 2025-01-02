@@ -35,17 +35,6 @@ function operate(operator, firstNumber, secondNumber) {
     }
 }
 
-//const calculator = document.querySelector(".calculator");
-//const screen = document.querySelector(".screen");
-//const keyboard = document.querySelector(".keyboard");
-
-//const upperText = document.querySelector(".upperText");
-//const lowerText = document.querySelector(".lowerText");
-//screen.appendChild(upperText);
-//screen.appendChild(lowerText);
-
-//calculator.appendChild(screen);
-//calculator.appendChild(keyboard);
 
 const upperText = document.querySelector(".upperText");
 const lowerText = document.querySelector(".lowerText");
@@ -259,7 +248,7 @@ delButton.addEventListener("click", () => {
     }
 });
 
-percentageButton.addEventListener("click", () => {
+/*percentageButton.addEventListener("click", () => {
     if (lowerText.textContent) {
         number = +lowerText.textContent*100;
         lowerText.textContent = `${number}%`;
@@ -278,6 +267,7 @@ percentageButton.addEventListener("click", () => {
         secondNumber = "";
     }
 });
+*/
 
 
 
